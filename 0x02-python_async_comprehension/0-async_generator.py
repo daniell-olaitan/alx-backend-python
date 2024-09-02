@@ -4,10 +4,10 @@ Implement a coroutine that asyncronously wait 1 sec and yield a random number
 """
 import asyncio
 import random
-from typing import AsyncGenerator
+from typing import Generator
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
+async def async_generator() -> Generator[float, None, None]:
     """
     Asyncronously wait 1 sec and yield a random number
 
