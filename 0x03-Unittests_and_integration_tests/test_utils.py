@@ -21,4 +21,13 @@ class TestAccessNestedMap(unittest.TestCase):
         path: t.Sequence,
         result: t.Union[t.Mapping, t.Any]
     ) -> None:
+        """
+        Test utils.access_nested_map method
+
+        Args:
+            name: name of test
+            nested_map: dictionary of maps
+            path: sequence of paths
+            result: result of the
+        """
         self.assertEqual(access_nested_map(nested_map, path), result)
