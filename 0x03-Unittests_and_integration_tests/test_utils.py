@@ -79,12 +79,13 @@ class TestGetJson(unittest.TestCase):
     Implement a test case and test utils.get_json
     """
     @parameterized.expand([
-        ('http://example.com', {"payload": True}),
-        ('http://holberton.io', {"payload": False})
+        ('first test', 'http://example.com', {"payload": True}),
+        ('second test', 'http://holberton.io', {"payload": False})
     ])
     @patch('requests.get')
     def test_get_json(
         self,
+        name: str,
         test_url: str,
         test_payload: t.Mapping,
         mock_response_get: MagicMock

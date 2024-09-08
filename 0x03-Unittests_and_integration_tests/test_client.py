@@ -27,7 +27,7 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_method: MagicMock
     ) -> None:
         """
-        Test client.GithubOrgClient.org
+        Test client.GithubOrgClient.org for correctness
         """
         mock_method.return_value = result
         c = client.GithubOrgClient(org)
@@ -40,7 +40,7 @@ class TestGithubOrgClient(unittest.TestCase):
         )
 
     def test_public_repos_url(self):
-        """Test public_repos_url"""
+        """Test public_repos_url for correctness"""
         mock_org_payload = {
             'repos_url': 'https://api.github.com/orgs/test-org/repos'
         }
@@ -79,3 +79,23 @@ class TestGithubOrgClient(unittest.TestCase):
             mock_get_json.assert_called_once_with(
                 'https://api.github.com/orgs/test-org/repos'
             )
+
+    @parameterized.expand([
+        ('test 1', {"license": {"key": "my_license"}}, "my_license", True),
+        ('test 2', {"license": {"key": "other_license"}}, "my_license", False),
+        ('test 3', {"license": {"k": "other_license"}}, "my_license", False)
+    ])
+    def test_has_license(
+        self,
+        name: str,
+        repo: t.Dict[str, t.Dict],
+        key: str,
+        result: bool
+    ) -> None:
+        """
+        Test has_license method of the client module
+        """
+        self.assertEqual(
+            client.GithubOrgClient.has_license(repo, key),
+            result
+        )
