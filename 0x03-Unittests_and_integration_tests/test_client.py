@@ -40,6 +40,7 @@ class TestGithubOrgClient(unittest.TestCase):
         )
 
     def test_public_repos_url(self):
+        """Test public_repos_url"""
         mock_org_payload = {
             'repos_url': 'https://api.github.com/orgs/test-org/repos'
         }
