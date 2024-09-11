@@ -20,8 +20,16 @@ class TestGithubOrgClient(unittest.TestCase):
     Implement test cases and test the client module
     """
     @parameterized.expand([
-        ('test google', 'google', {'payload': 'google'}),
-        ('test abc', 'abc', {'payload': 'abc'})
+        (
+            'test google',
+            'google',
+            {"repos_url": "https://api.github.com/orgs/google/repos"}
+        ),
+        (
+            'test abc',
+            'abc',
+            {"repos_url": "https://api.github.com/orgs/abc/repos"}
+        )
     ])
     @patch('client.get_json')
     def test_org(
