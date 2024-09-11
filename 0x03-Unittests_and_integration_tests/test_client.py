@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Implement test cases and test the client module
+"""
 import client
 import typing as t
 import unittest
