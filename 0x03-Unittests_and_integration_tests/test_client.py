@@ -102,6 +102,7 @@ class TestGithubOrgClient(unittest.TestCase):
             result
         )
 
+
 @parameterized_class([
     {
         'org_payload': payload[0],
@@ -112,6 +113,9 @@ class TestGithubOrgClient(unittest.TestCase):
     for payload in TEST_PAYLOAD
 ])
 class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """
+    Implement test cases and test the client module
+    """
     @classmethod
     def side_effect(cls, url: str) -> t.Dict:
         """
