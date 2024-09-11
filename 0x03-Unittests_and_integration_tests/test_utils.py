@@ -82,7 +82,7 @@ class TestGetJson(unittest.TestCase):
         ('first test', 'http://example.com', {"payload": True}),
         ('second test', 'http://holberton.io', {"payload": False})
     ])
-    @patch('requests.get')
+    @patch('utils.requests.get')
     def test_get_json(
         self,
         name: str,
